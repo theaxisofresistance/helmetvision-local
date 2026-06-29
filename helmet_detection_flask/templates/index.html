@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HelmetVision AI – Motorcycle Helmet Detection System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand">
+      <i class="fa-solid fa-helmet-safety"></i>
+      <span>HelmetVision <span class="accent">AI</span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#architecture" class="nav-link">Architecture</a></li>
+      <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+      <li><a href="#logs" class="nav-link">Logs</a></li>
+      <li><a href="#model" class="nav-link">Model</a></li>
+      <li><a href="#team" class="nav-link">Team</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+        <i class="fa-solid fa-moon" id="themeIcon"></i>
+      </button>
+      <button class="btn-settings" id="openSettings" title="Settings">
+        <i class="fa-solid fa-gear"></i>
+      </button>
+      <button class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-badge"><i class="fa-solid fa-circle-dot pulse-green"></i> System Online</div>
+      <h1 class="hero-title">HelmetVision <span class="accent">AI</span></h1>
+      <p class="hero-subtitle">Real-Time Motorcycle Helmet Detection System using Computer Vision</p>
+      <p class="hero-desc">Protecting lives on every road through intelligent AI-powered monitoring. Our system detects helmet compliance in real time, helping traffic authorities enforce safety regulations and reduce head injury fatalities.</p>
+      <div class="hero-cta">
+        <a href="#dashboard" class="btn btn-primary"><i class="fa-solid fa-play"></i> Get Started</a>
+        <a href="#dashboard" class="btn btn-outline"><i class="fa-solid fa-chart-line"></i> View Dashboard</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card reveal">
+          <div class="stat-value counter" data-target="94">0</div><span class="stat-unit">%</span>
+          <div class="stat-label">Detection Accuracy</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-value">10K<span class="stat-unit">+</span></div>
+          <div class="stat-label">Images Processed</div>
+        </div>
+        <div class="stat-card reveal">
+          <i class="fa-solid fa-bolt stat-icon"></i>
+          <div class="stat-label">Real-Time Monitoring</div>
+        </div>
+        <div class="stat-card reveal">
+          <i class="fa-solid fa-brain stat-icon"></i>
+          <div class="stat-label">AI Powered</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="monitor-frame">
+        <div class="monitor-header">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span class="monitor-title">Live Feed — Camera 01</span>
+        </div>
+        <div class="monitor-body">
+          <img src="https://placehold.co/480x300/1a1a1a/FFCC00?text=LIVE+FEED" alt="Live camera feed placeholder" class="monitor-img" />
+          <div class="monitor-overlay">
+            <span><i class="fa-solid fa-circle-dot pulse-red"></i> REC</span>
+            <span>18:31:44</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ARCHITECTURE SECTION ===== -->
+  <section class="section architecture" id="architecture">
+    <div class="section-header">
+      <p class="section-eyebrow">How It Works</p>
+      <h2 class="section-title">System <span class="accent">Architecture</span></h2>
+      <p class="section-desc">A five-stage processing pipeline from raw input to actionable alerts.</p>
+    </div>
+    <div class="arch-pipeline">
+      <div class="arch-step reveal">
+        <div class="arch-icon"><i class="fa-solid fa-camera"></i></div>
+        <h3>Camera / Upload</h3>
+        <p>Webcam stream or uploaded image/video input is ingested into the pipeline.</p>
+      </div>
+      <div class="arch-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+      <div class="arch-step reveal">
+        <div class="arch-icon"><i class="fa-solid fa-microchip"></i></div>
+        <h3>Image Processing</h3>
+        <p>Frames are resized, normalized, and pre-processed for model inference.</p>
+      </div>
+      <div class="arch-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+      <div class="arch-step reveal">
+        <div class="arch-icon"><i class="fa-solid fa-brain"></i></div>
+        <h3>Detection Model</h3>
+        <p>Classical ML model to ensure lightweight and fast running.</p>
+      </div>
+      <div class="arch-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+      <div class="arch-step reveal">
+        <div class="arch-icon"><i class="fa-solid fa-tags"></i></div>
+        <h3>Classification Engine</h3>
+        <p>Detected regions are classified: Helmet or No Helmet, with confidence scores.</p>
+      </div>
+      <div class="arch-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+      <div class="arch-step reveal">
+        <div class="arch-icon"><i class="fa-solid fa-bell"></i></div>
+        <h3>Dashboard & Alerts</h3>
+        <p>Results are displayed on the dashboard and violations trigger instant alerts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MAIN DASHBOARD SECTION ===== -->
+  <section class="section dashboard" id="dashboard">
+    <div class="section-header">
+      <p class="section-eyebrow">Monitoring Center</p>
+      <h2 class="section-title">Live <span class="accent">Dashboard</span></h2>
+    </div>
+    <div class="dashboard-grid">
+
+      <!-- LEFT: Detection Monitor -->
+      <div class="monitor-panel glass">
+        <div class="tab-nav">
+          <button class="tab-btn active" data-tab="upload"><i class="fa-solid fa-upload"></i> Media Upload</button>
+        </div>
+
+        <!-- Tab: Upload -->
+        <div class="tab-content active" id="tab-upload">
+          <div class="drop-zone" id="dropZone">
+            <i class="fa-solid fa-cloud-arrow-up drop-icon"></i>
+            <p>Drag & Drop your file here</p>
+            <span>JPG, PNG, MP4, AVI supported</span>
+            <div class="drop-buttons">
+              <label class="btn btn-sm btn-primary" for="uploadImage"><i class="fa-solid fa-image"></i> Upload Image</label>
+              <input type="file" id="uploadImage" accept="image/*" hidden />
+              <label class="btn btn-sm btn-outline" for="uploadVideo"><i class="fa-solid fa-film"></i> Upload Video</label>
+              <input type="file" id="uploadVideo" accept="video/*" hidden />
+            </div>
+            <div class="ip-cam-row" style="margin-top:1rem;">
+              <label for="modelSelect" class="section-desc" style="margin:0;font-size:.85rem;min-width:140px;text-align:left;">
+                Select inference model
+              </label>
+              <select class="input-field" id="modelSelect">
+                <option value="KNN">KNN</option>
+                <option value="SVM">SVM</option>
+                <option value="Random Forest">Random Forest</option>
+                <option value="Gradient Boosting">Gradient Boosting</option>
+                <option value="Logistic Regression">Logistic Regression</option>
+              </select>
+            </div>
+            <p id="uploadHint" class="section-desc" style="margin-top:1rem;font-size:.9rem;">
+              Upload an image to run inference with the selected model. Results will be saved in your browser history.
+            </p>
+          </div>
+        </div>
+
+        <!-- Monitor View -->
+        <div class="main-monitor" id="mainMonitor">
+          <img id="uploadedPreview" src="https://placehold.co/700x400/111111/333333?text=No+Feed+Active" alt="Monitor preview" id="monitorImg" />
+          <div class="monitor-status-bar">
+            <span id="detectionStatus" class="status-idle"><i class="fa-solid fa-pause-circle"></i> Detection Idle</span>
+            <span id="monitorTime">--:--:--</span>
+          </div>
+        </div>
+
+        <!-- Detection Controls -->
+        <div class="detection-controls">
+          <button class="btn btn-primary" id="startDetection"><i class="fa-solid fa-play"></i> Start Detection</button>
+          <button class="btn btn-warning" id="pauseDetection"><i class="fa-solid fa-pause"></i> Pause</button>
+          <button class="btn btn-danger" id="stopDetection"><i class="fa-solid fa-stop"></i> Stop</button>
+        </div>
+      </div>
+
+      <!-- RIGHT: Analytics Panel -->
+      <div class="analytics-panel">
+        <!-- Stat Cards -->
+        <div class="analytics-cards">
+          <div class="analytics-card glass">
+            <div class="ac-icon blue"><i class="fa-solid fa-users"></i></div>
+            <div class="ac-data">
+              <div class="ac-value" id="statTotal">0</div>
+              <div class="ac-label">Total Inferences</div>
+            </div>
+          </div>
+          <div class="analytics-card glass">
+            <div class="ac-icon green"><i class="fa-solid fa-helmet-safety"></i></div>
+            <div class="ac-data">
+              <div class="ac-value" id="statSafe">0</div>
+              <div class="ac-label">Helmet Detected</div>
+            </div>
+            <span class="indicator green-dot"></span>
+          </div>
+          <div class="analytics-card glass">
+            <div class="ac-icon red"><i class="fa-solid fa-triangle-exclamation"></i></div>
+            <div class="ac-data">
+              <div class="ac-value" id="statViolation">0</div>
+              <div class="ac-label">No Helmet Violations</div>
+            </div>
+            <span class="indicator red-blink"></span>
+          </div>
+          <div class="analytics-card glass">
+            <div class="ac-icon yellow"><i class="fa-solid fa-bullseye"></i></div>
+            <div class="ac-data">
+              <div class="ac-value" id="statSafeRate">0<span style="font-size:1rem">%</span></div>
+              <div class="ac-label">Helmet Detection Rate</div>
+            </div>
+          </div>
+          <div class="analytics-card glass">
+            <div class="ac-icon purple"><i class="fa-solid fa-gauge-high"></i></div>
+            <div class="ac-data">
+              <div class="ac-value" id="statAvgConfidence">0<span style="font-size:1rem">%</span></div>
+              <div class="ac-label">Avg Confidence</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Confidence Bar -->
+        <div class="confidence-card glass">
+          <div class="conf-header">
+            <span><i class="fa-solid fa-signal"></i> Confidence Score</span>
+            <span id="confValue" class="accent">94%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="confBar" style="width:94%"></div>
+          </div>
+        </div>
+
+        <!-- Activity Feed -->
+        <div class="activity-card glass">
+          <div class="activity-header">
+            <span><i class="fa-solid fa-list-ul"></i> Live Activity Feed</span>
+            <span class="pulse-dot"></span>
+          </div>
+          <ul class="activity-feed" id="activityFeed">
+            <li class="feed-item safe"><span class="feed-badge safe"><i class="fa-solid fa-check"></i></span><span class="feed-text">Helmet detected</span><span class="feed-time">18:31:22</span></li>
+            <li class="feed-item violation"><span class="feed-badge violation"><i class="fa-solid fa-exclamation"></i></span><span class="feed-text">No Helmet detected</span><span class="feed-time">18:31:35</span></li>
+            <li class="feed-item safe"><span class="feed-badge safe"><i class="fa-solid fa-check"></i></span><span class="feed-text">Helmet detected</span><span class="feed-time">18:32:01</span></li>
+            <li class="feed-item safe"><span class="feed-badge safe"><i class="fa-solid fa-check"></i></span><span class="feed-text">Helmet detected</span><span class="feed-time">18:32:18</span></li>
+            <li class="feed-item violation"><span class="feed-badge violation"><i class="fa-solid fa-exclamation"></i></span><span class="feed-text">No Helmet detected</span><span class="feed-time">18:32:45</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LOGS SECTION ===== -->
+  <section class="section logs-section" id="logs">
+    <div class="section-header">
+      <p class="section-eyebrow">Audit Trail</p>
+      <h2 class="section-title">History & <span class="accent">Violation Logs</span></h2>
+    </div>
+    <div class="logs-controls glass">
+      <div class="logs-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search logs..." id="logsSearch" class="input-field" />
+      </div>
+      <select class="input-field select-filter" id="logsFilter">
+        <option value="all">All Status</option>
+        <option value="safe">Safe</option>
+        <option value="violation">Violation</option>
+      </select>
+      <div class="logs-actions">
+        <button class="btn btn-sm btn-outline" id="exportCSV"><i class="fa-solid fa-file-csv"></i> Export CSV</button>
+        <button class="btn btn-sm btn-outline" id="exportExcel"><i class="fa-solid fa-file-excel"></i> Export Excel</button>
+        <button class="btn btn-sm btn-primary" id="refreshLogs"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+      </div>
+    </div>
+    <div class="table-wrapper glass">
+      <table class="logs-table" id="logsTable">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Timestamp</th>
+            <th>Snapshot</th>
+            <th>Status</th>
+            <th>Confidence</th>
+          </tr>
+        </thead>
+        <tbody id="logsBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== MODEL PERFORMANCE SECTION ===== -->
+  <!-- <section class="section model-section" id="model">
+    <div class="section-header">
+      <p class="section-eyebrow">AI Insights</p>
+      <h2 class="section-title">Model <span class="accent">Performance</span></h2>
+    </div>
+
+    <div class="model-top-row">
+      <div class="dataset-card glass reveal">
+        <h3><i class="fa-solid fa-database"></i> Dataset Information</h3>
+        <div class="dataset-grid">
+          <div class="ds-item"><span class="ds-val">5,000</span><span class="ds-lbl">Total Images</span></div>
+          <div class="ds-item"><span class="ds-val accent">2,500</span><span class="ds-lbl">Helmet</span></div>
+          <div class="ds-item"><span class="ds-val red-text">2,500</span><span class="ds-lbl">No Helmet</span></div>
+          <div class="ds-item"><span class="ds-val">80:20</span><span class="ds-lbl">Train/Test Split</span></div>
+        </div>
+      </div>
+      <div class="metric-cards">
+        <div class="metric-card glass reveal"><div class="metric-val accent">94%</div><div class="metric-lbl">Accuracy</div></div>
+        <div class="metric-card glass reveal"><div class="metric-val">92%</div><div class="metric-lbl">Precision</div></div>
+        <div class="metric-card glass reveal"><div class="metric-val">91%</div><div class="metric-lbl">Recall</div></div>
+        <div class="metric-card glass reveal"><div class="metric-val">91.5%</div><div class="metric-lbl">F1-Score</div></div>
+      </div>
+    </div>
+
+    <div class="charts-row">
+      <div class="chart-card glass reveal">
+        <h3><i class="fa-solid fa-chart-line"></i> Training Accuracy</h3>
+        <canvas id="accuracyChart"></canvas>
+      </div>
+      <div class="chart-card glass reveal">
+        <h3><i class="fa-solid fa-chart-bar"></i> Class Distribution</h3>
+        <canvas id="classChart"></canvas>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- ===== TEAM SECTION ===== -->
+  <section class="section team-section" id="team">
+    <div class="section-header">
+      <p class="section-eyebrow">The People Behind the System</p>
+      <h2 class="section-title">Meet the <span class="accent">Team</span></h2>
+    </div>
+    <div class="team-grid">
+
+      <div class="team-card glass reveal">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#FFCC00,#ff9800)"><i class="fa-solid fa-code"></i></div>
+        <h3 class="team-name">Agilz</h3>
+        <p class="team-id">UI</p>
+        <p class="team-role">UI Engineer</p>
+        <p class="team-desc">Designed and built the dashboard interface, upload flow, and monitoring experience for the project demo.</p>
+        <div class="team-links">
+          <a href="#" class="team-btn github"><i class="fa-brands fa-github"></i></a>
+          <a href="#" class="team-btn linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="team-btn email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <div class="team-card glass reveal">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#00e676,#00bcd4)"><i class="fa-solid fa-brain"></i></div>
+        <h3 class="team-name">Rizky</h3>
+        <p class="team-id">ML</p>
+        <p class="team-role">Machine Learning Engineer</p>
+        <p class="team-desc">Handled model training, feature preprocessing alignment, and inference behavior for helmet classification.</p>
+        <div class="team-links">
+          <a href="#" class="team-btn github"><i class="fa-brands fa-github"></i></a>
+          <a href="#" class="team-btn linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="team-btn email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <div class="team-card glass reveal">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#7c4dff,#e040fb)"><i class="fa-solid fa-database"></i></div>
+        <h3 class="team-name">Udin</h3>
+        <p class="team-id">Deployment</p>
+        <p class="team-role">Deployment Engineer</p>
+        <p class="team-desc">Managed deployment setup, runtime configuration, and delivery of the web application environment.</p>
+        <div class="team-links">
+          <a href="#" class="team-btn github"><i class="fa-brands fa-github"></i></a>
+          <a href="#" class="team-btn linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="team-btn email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <div class="team-card glass reveal">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#ef5350,#ff6f00)"><i class="fa-solid fa-server"></i></div>
+        <h3 class="team-name">Muadz</h3>
+        <p class="team-id">Docs</p>
+        <p class="team-role">Documentation</p>
+        <p class="team-desc">Prepared documentation, technical summaries, and project reporting materials for the team.</p>
+        <div class="team-links">
+          <a href="#" class="team-btn github"><i class="fa-brands fa-github"></i></a>
+          <a href="#" class="team-btn linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="team-btn email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <div class="team-card glass reveal">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#26c6da,#42a5f5)"><i class="fa-solid fa-file-lines"></i></div>
+        <h3 class="team-name">BP</h3>
+        <p class="team-id">Docs</p>
+        <p class="team-role">Documentation</p>
+        <p class="team-desc">Supported project documentation, presentation materials, and final write-up preparation.</p>
+        <div class="team-links">
+          <a href="#" class="team-btn github"><i class="fa-brands fa-github"></i></a>
+          <a href="#" class="team-btn linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="team-btn email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="footer-logo"><i class="fa-solid fa-helmet-safety"></i> HelmetVision <span class="accent">AI</span></span>
+        <p>AI-Powered Motorcycle Helmet Detection System for smarter, safer roads.</p>
+      </div>
+      <div class="footer-info">
+        <p><i class="fa-solid fa-graduation-cap"></i> Computer Vision &amp; Deep Learning — Final Year Project</p>
+        <p><i class="fa-solid fa-users"></i> Team HelmetVision | Batch 2021</p>
+      </div>
+      <div class="footer-social">
+        <a href="#" class="social-icon"><i class="fa-brands fa-github"></i></a>
+        <a href="#" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 HelmetVision AI. Built with <i class="fa-solid fa-heart accent"></i> by Team HelmetVision.</p>
+    </div>
+  </footer>
+
+  <!-- ===== SETTINGS MODAL ===== -->
+  <div class="modal-overlay" id="settingsModal">
+    <div class="modal glass">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-gear"></i> Settings</h3>
+        <button class="modal-close" id="closeSettings"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="setting-group">
+          <label class="setting-label">Detection Confidence Threshold</label>
+          <div class="slider-row">
+            <input type="range" min="0" max="100" value="50" class="slider" id="confThreshold" />
+            <span class="slider-val" id="confThreshVal">50%</span>
+          </div>
+        </div>
+        <div class="setting-group">
+          <label class="setting-label">Theme</label>
+          <div class="theme-radio-group">
+            <label class="radio-option">
+              <input type="radio" name="theme" value="dark" checked /> <span>Dark Mode</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="theme" value="light" /> <span>Light Mode</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" id="saveSettings"><i class="fa-solid fa-floppy-disk"></i> Save Settings</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TOAST CONTAINER ===== -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
