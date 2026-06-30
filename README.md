@@ -2,6 +2,17 @@
 
 Karena adanya batas ukuran file pada GitHub dan Vercel, dataset serta model tidak disertakan di dalam repository. Ikuti langkah-langkah berikut untuk menjalankan proyek.
 
+## pre-requirement (sebelum mulai)
+pastikan telah terinstall
+```
+joblib
+pickle
+matplotlib
+flask
+sklearn
+numpy
+cv2
+```
 ## 1. Download Dataset
 
 Unduh dataset Helmet Detection dari Kaggle:
@@ -91,6 +102,11 @@ flask run
 sesuai dengan konfigurasi proyek Anda.
 
 ---
+## 6. Hasil / Result
+Jika sudah berjalan dapat dibuka di port 5000
+<p align="center">
+<img width="1600" height="957" alt="image" src="https://github.com/user-attachments/assets/9037e693-a1b1-454c-8661-16d1406dfadd" />
+</p>
 
 ## Catatan
 
